@@ -14,9 +14,9 @@ mongoose.connect('mongodb+srv://admin:83obbrFFlsLFOBGt@cluster0.zmqqzda.mongodb.
 // ПОЛНАЯ СХЕМА (обязательно обнови этот блок)
 const teamSchema = new mongoose.Schema({
     teamName: String,
+    institution: String,
     country: String,
     city: String,
-    institution: String,
     phone: String,
     email: String,
     vkLink: String,
