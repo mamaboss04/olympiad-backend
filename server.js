@@ -42,8 +42,9 @@ app.post('/api/register', async (req, res) => {
         const newTeam = new Team(req.body);
         await newTeam.save();
         res.status(201).send({ message: 'Регистрация прошла успешно!' });
-    } catch (error) {
-        res.status(500).send(error);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Ошибка сохранения' });
     }
 });
 
@@ -57,5 +58,5 @@ app.get('/api/teams', async (req, res) => {
     }
 });
 
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Сервер запущен на http://localhost:${PORT}`));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log('Сервер запущен'));
